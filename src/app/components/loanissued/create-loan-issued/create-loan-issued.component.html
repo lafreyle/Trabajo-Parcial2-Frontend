@@ -1,66 +1,81 @@
-<p-card header="Create LoanIssued"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
+<p-card header="Crear Prestamo Realizado" [style]="{ width: '100%' }">
+  <!-- The card container with the title "Crear Prestamo Realizado" -->
 
-    </ng-template>
-    <div>
+  <ng-template pTemplate="header">
+      <!-- Header section is currently empty, you could add additional info here if needed -->
+  </ng-template>
+
+  <div>
+      <!-- Form to create a loan issued, bound to the "form" FormGroup and handling submission with ngSubmit -->
       <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
 
+          <div class="grid">
+              <!-- Grid layout for form fields -->
 
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="loan" placeholder="loan"  title="Loan">         
+              <div class="col-12 sm:col-6">
+                  <!-- First form field (Loan input) -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <!-- Input for loan number, bound to the 'loan' form control -->
+                      <input class="w-12" type="number" pInputText formControlName="loan" placeholder="Préstamo" title="Préstamo">         
+                  </div>
               </div>
-          </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="employee" placeholder="employee" title="Employee" >          
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="date" pInputText formControlName="loan_date" placeholder="loan date"  title="Loan Date">         
+              <div class="col-12 sm:col-6">
+                  <!-- Second form field (Employee input) -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                      <!-- Input for employee, bound to the 'employee' form control -->
+                      <input class="w-12" type="number" pInputText formControlName="employee" placeholder="Empleado" title="Empleado">          
+                  </div>
               </div>
+
           </div>
+
+          <div class="grid">
+              <!-- Additional grid for the loan date input -->
+
+              <div class="col-12 sm:col-6">
+                  <!-- Loan date input field -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                      <!-- Input for the loan date, bound to the 'loan_date' form control -->
+                      <input class="w-12" type="date" pInputText formControlName="loan_date" placeholder="Fecha de Préstamo realizado" title="Fecha de Préstamo Realizado">         
+                  </div>
+              </div>
+
           </div>
 
+          <!-- Buttons to submit or cancel the form -->
+          <div class="flex justify-content-center flex-wrap">
+              <!-- Save button, triggers the form submission -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Guardar"
+                  icon="pi pi-save"
+                  severity="info"
+                  class="mr-4"
+                  type="submit"
+              ></button>
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Save"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
+              <!-- Cancel button, calls the cancel method to navigate away without saving -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Cancelar"
+                  icon="pi pi-times-circle"
+                  severity="warning"
+                  class="mr-4"
+                  type="button"
+                  (click)="cancel()"
+              ></button>
+          </div>
 
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
-        </div>
+      </form>
+  </div>
 
-    </form> 
-
-    </div>
-    <ng-template pTemplate="footer">
-
-    </ng-template>
-  </p-card>
-
+  <ng-template pTemplate="footer">
+      <!-- Footer section is currently empty, you could add additional info here if needed -->
+  </ng-template>
+</p-card>

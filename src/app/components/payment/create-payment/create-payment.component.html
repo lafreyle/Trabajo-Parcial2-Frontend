@@ -1,84 +1,93 @@
-<p-card header="Create Clients"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
-
-    </ng-template>
-    <div>
-      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
-
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="date" pInputText formControlName="payment_date" placeholder="payment date"  title="Payment Date">         
-              </div>
-          </div>
-
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="amount" placeholder="amount" title="Amount" >          
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="status" placeholder="status"  title="Status">         
-              </div>
-          </div>
-
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="loan" placeholder="loan" title="loan" >          
-            </div>
-          </div>
-
-
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-              <input class="w-12" type="number" pInputText formControlName="client" placeholder="client" title="Client" >          
-          </div>
+<p-card header="Crear Pagos" [style]="{ width: '100%' }">
+  <ng-template pTemplate="header">
+      <!-- The header section for the card can be customized, it's empty here. -->
+  </ng-template>
+  
+  <div>
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+      <!-- Form submission will call the onSubmit() method when the user submits the form -->
+      
+      <div class="grid">
+        <!-- Grid layout for the form fields -->
+        <div class="col-12 sm:col-6">
+          <!-- Column layout for small and large screens -->
+          <div class="p-inputgroup mb-1">
+            <!-- PrimeNG Input group for a date input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input class="w-12" type="date" pInputText formControlName="payment_date" placeholder="Fecha del pago" title="Fecha del pago">
+            <!-- Date input for the payment date -->
           </div>
         </div>
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Save"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- PrimeNG Input group for a numeric input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <input class="w-12" type="number" pInputText formControlName="amount" placeholder="Monto" title="Monto">
+            <!-- Numeric input for the payment amount -->
+          </div>
+        </div>
+      </div>
 
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
+      <div class="grid">
+        <!-- Another row in the grid layout -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+            <input class="w-12" type="text" pInputText formControlName="status" placeholder="Estado" title="Estado">
+            <!-- Text input for the payment status -->
+          </div>
         </div>
 
-    </form> 
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
+            <input class="w-12" type="number" pInputText formControlName="loan" placeholder="Préstamo" title="Préstamo">
+            <!-- Numeric input for the loan amount associated with the payment -->
+          </div>
+        </div>
+      </div>
 
-    </div>
-    <ng-template pTemplate="footer">
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
+            <input class="w-12" type="number" pInputText formControlName="client" placeholder="Cliente" title="Cliente">
+            <!-- Numeric input for the client ID associated with the payment -->
+          </div>
+        </div>
+      </div>
 
-    </ng-template>
-  </p-card>
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Buttons to submit or cancel the form -->
+        <button 
+          pButton 
+          pRipple
+          label="Guardar"
+          icon="pi pi-save"
+          severity="info"
+          class="mr-4"
+          type="submit"
+        ></button>
+        <!-- Save button to submit the form -->
 
+        <button 
+          pButton 
+          pRipple
+          label="Cancelar"
+          icon="pi pi-times-circle"
+          severity="warning"
+          class="mr-4"
+          type="button"
+          (click)="cancel()"
+        ></button>
+        <!-- Cancel button to trigger the cancel() method -->
+      </div>
+
+    </form>
+  </div>
+
+  <ng-template pTemplate="footer">
+      <!-- Footer section of the card, currently empty -->
+  </ng-template>
+</p-card>

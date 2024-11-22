@@ -1,49 +1,83 @@
 <p-card class="w-12 h-full">
+    <!-- Card container that holds the table and the 'Register Loan Issued' section -->
+    
     <ng-template pTemplate="header">
+        <!-- Header section of the card -->
 
         <div class="flex justify-content-between flex-wrap">
+            <!-- Flex container to align header elements -->
+
             <h3 class="ml-4">
-                Loan Issued Registration
+                Registrar Préstamos Realizados
             </h3>
+            <!-- Title of the card -->
+
             <div class="mt-2 mr-2">
+                <!-- Button to navigate to create a new loan issued -->
+
                 <a 
                   pButton 
                   pRipple
-                  label="Create Loan Issued" 
+                  label="Crear Préstamo Realizado" 
                   icon="pi pi-user-plus"
                   class="bg-cyan-600"
                   [routerLink]="['/loanis/new']">
                 </a>
-
-
+                <!-- This button navigates the user to the '/loanis/new' route to create a new loan issued -->
             </div>
 
         </div>
     </ng-template>
+
     <p>
+        <!-- Table that displays the list of loan issued records -->
+
         <p-table [value]="loanissued">
+            <!-- The table component from PrimeNG, bound to the 'loanissued' array -->
+
             <ng-template pTemplate="header">
+                <!-- Table header defining columns -->
+
                 <tr>
-                    <th>Loan</th>
-                    <th>Employee</th>
-                    <th>Loan Date</th>
-                    <th class="flex justify-content-center flex-wrap">Actions</th>
+                    <th>Préstamo</th>
+                    <!-- Column for 'Loan' -->
+
+                    <th>Empleado</th>
+                    <!-- Column for 'Employee' -->
+
+                    <th>Fecha de Préstamo</th>
+                    <!-- Column for 'Loan Date' -->
+
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <!-- Column for action buttons like print, edit, and delete -->
                 </tr>
             </ng-template>
+
             <ng-template pTemplate="body" let-loanissued>
+                <!-- Table body where each row corresponds to a loan issued record -->
+
                 <tr>
                     <td>{{ loanissued.loan }}</td>
+                    <!-- Displays the loan number or identifier -->
+
                     <td>{{ loanissued.employee }}</td>
+                    <!-- Displays the associated employee for the loan -->
+
                     <td>{{ loanissued.loan_date }}</td>
+                    <!-- Displays the loan date -->
+
                     <td>
+                        <!-- Action buttons for each record -->
+
                         <button 
-                        pButton 
+                            pButton 
                             pRipple
                             icon="pi pi-print"
-                            class="bg-cyan-600  mr-1"
+                            class="bg-cyan-600 mr-1"
                         >
-
+                            <!-- Print button (currently no action attached) -->
                         </button>
+
                         <a 
                             pButton 
                             pRipple
@@ -51,6 +85,7 @@
                             severity="warning"
                             class="mr-1"
                             [routerLink]="['/loanissued/edit', loanissued.id]">
+                            <!-- Edit button, navigates to the edit page of the loan issued record, passing the loan ID -->
                         </a>
 
                         <button 
@@ -61,7 +96,7 @@
                             class="mr-1"
                             (click)="delete(loanissued.id)"
                         >
-
+                            <!-- Delete button, calls the 'delete' method with the loan issued ID to delete the record -->
                         </button>
                     </td>
 
@@ -69,6 +104,5 @@
             </ng-template>
         </p-table>
     </p>
-
 </p-card>
 

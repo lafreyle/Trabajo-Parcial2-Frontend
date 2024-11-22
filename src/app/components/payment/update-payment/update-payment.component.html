@@ -1,83 +1,98 @@
-<p-card header="Create Clients"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
+<p-card header="Actualizar Pagos" [style]="{ width: '100%' }">
+  <!-- Card component with a header "Actualizar Pagos" and 100% width style applied -->
 
-    </ng-template>
-    <div>
+  <ng-template pTemplate="header">
+      <!-- Empty header template for the card, can be customized if needed -->
+  </ng-template>
+
+  <div>
+      <!-- Form section starts here with form validation (formGroup binding) -->
       <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+          <!-- Binding the form to a FormGroup, prevents form submission if invalid -->
+          
+          <!-- Grid Layout for inputs -->
+          <div class="grid">
+              <!-- Date input for payment date -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                      <input class="w-12" type="date" pInputText formControlName="payment_date" placeholder="Fecha de pago" title="Fecha de pago">
+                      <!-- Date input with icon and formControlName "payment_date" for validation -->
+                  </div>
+              </div>
 
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="date" pInputText formControlName="payment_date" placeholder="payment date"  title="Payment Date">         
+              <!-- Number input for amount -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-chart-line"></i></span>
+                      <input class="w-12" type="number" pInputText formControlName="amount" placeholder="Monto" title="Monto">
+                      <!-- Number input for amount with icon and formControlName "amount" for validation -->
+                  </div>
               </div>
           </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="amount" placeholder="amount" title="Amount" >          
-            </div>
-          </div>
+          <!-- Grid Layout for additional inputs -->
+          <div class="grid">
+              <!-- Text input for status -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
+                      <input class="w-12" type="text" pInputText formControlName="status" placeholder="Estado" title="Estado">
+                      <!-- Text input for status with icon and formControlName "status" for validation -->
+                  </div>
+              </div>
 
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="status" placeholder="status"  title="Status">         
+              <!-- Number input for loan -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-dollar"></i></span>
+                      <input class="w-12" type="number" pInputText formControlName="loan" placeholder="Préstamo" title="Préstamo">
+                      <!-- Number input for loan with icon and formControlName "loan" for validation -->
+                  </div>
               </div>
           </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="loan" placeholder="loan" title="loan" >          
-            </div>
+          <!-- Grid Layout for client input -->
+          <div class="grid">
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input class="w-12" type="number" pInputText formControlName="client" placeholder="Cliente" title="Cliente">
+                      <!-- Number input for client with icon and formControlName "client" for validation -->
+                  </div>
+              </div>
           </div>
 
+          <!-- Buttons for form submission and cancellation -->
+          <div class="flex justify-content-center flex-wrap">
+              <!-- Submit button with label "Actualizar" (Update), icon, and "info" severity -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Actualizar"
+                  icon="pi pi-save"
+                  severity="info"
+                  class="mr-4"
+                  type="submit"
+              ></button>
 
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-              <input class="w-12" type="number" pInputText formControlName="client" placeholder="client" title="Client" >          
+              <!-- Cancel button with label "Cancelar", icon, and "warning" severity -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Cancelar"
+                  icon="pi pi-times-circle"
+                  severity="warning"
+                  class="mr-4"
+                  type="button"
+                  (click)="cancel()"
+              ></button>
           </div>
-          </div>
-        </div>
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Save"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
+      </form>
+  </div>
 
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
-        </div>
-
-    </form> 
-
-    </div>
-    <ng-template pTemplate="footer">
-
-    </ng-template>
-  </p-card>
+  <ng-template pTemplate="footer">
+      <!-- Empty footer template, can be customized if needed -->
+  </ng-template>
+</p-card>

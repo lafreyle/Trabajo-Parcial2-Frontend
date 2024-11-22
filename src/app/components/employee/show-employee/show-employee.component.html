@@ -1,49 +1,59 @@
+<!-- PrimeNG card component for displaying and managing employee registration -->
 <p-card class="w-12 h-full">
+
+    <!-- Template for the card header -->
     <ng-template pTemplate="header">
-        
         <div class="flex justify-content-between flex-wrap">
+            <!-- Header title -->
             <h3 class="ml-4">
-                Employee Registration
+                Registrar Empleados
             </h3>
             <div class="mt-2 mr-2">
+                <!-- Button for navigating to the "Create Employee" page -->
                 <a 
                   pButton 
                   pRipple
-                  label="Create Employees" 
+                  label="Crear Empleado" 
                   icon="pi pi-user-plus"
                   class="bg-cyan-600"
                   [routerLink]="['/employees/new']">
                 </a>
-
-
             </div>
-
         </div>
     </ng-template>
+
     <p>
+        <!-- PrimeNG table to display the list of employees -->
         <p-table [value]="employees">
+            <!-- Table header -->
             <ng-template pTemplate="header">
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Position</th>
-                    <th class="flex justify-content-center flex-wrap">Actions</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cargo</th>
+                    <!-- Column for action buttons -->
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
                 </tr>
             </ng-template>
+            <!-- Table body: Dynamically populates rows with employee data -->
             <ng-template pTemplate="body" let-employees>
                 <tr>
+                    <!-- Employee's first name -->
                     <td>{{ employees.first_name }}</td>
+                    <!-- Employee's last name -->
                     <td>{{ employees.last_name }}</td>
+                    <!-- Employee's position -->
                     <td>{{ employees.position }}</td>
+                    <!-- Action buttons for each employee -->
                     <td>
+                        <!-- Button for printing employee details -->
                         <button 
-                        pButton 
+                            pButton 
                             pRipple
                             icon="pi pi-print"
-                            class="bg-cyan-600  mr-1"
-                        >
-
+                            class="bg-cyan-600  mr-1">
                         </button>
+                        <!-- Link to edit employee details -->
                         <a 
                             pButton 
                             pRipple
@@ -52,23 +62,20 @@
                             class="mr-1"
                             [routerLink]="['/employees/edit', employees.id]">
                         </a>
-
+                        <!-- Button for deleting an employee -->
                         <button 
                             pButton 
                             pRipple
                             severity="danger"
                             icon="pi pi-eraser"
                             class="mr-1"
-                            (click)="delete(employees.id)"
-                        >
-
+                            (click)="delete(employees.id)">
                         </button>
                     </td>
-
                 </tr>
             </ng-template>
         </p-table>
     </p>
-
 </p-card>
+
 

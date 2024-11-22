@@ -1,67 +1,94 @@
-<p-card header="Update mployee"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
+<!-- PrimeNG card component for the "Update Employee" form -->
+<p-card header="Actualizar Empleado" [style]="{ width: '100%' }">
+  <!-- Template for the card header -->
+  <ng-template pTemplate="header">
+      <!-- Optional header content -->
+  </ng-template>
 
-    </ng-template>
-    <div>
+  <div>
+      <!-- Reactive form bound to the "form" FormGroup -->
       <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
 
+          <!-- Grid layout for responsive design -->
+          <div class="grid">
+              <!-- First Name Field -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input 
+                          class="w-12" 
+                          type="text" 
+                          pInputText 
+                          formControlName="first_name" 
+                          placeholder="Nombre del empleado" 
+                          title="Nombre">         
+                  </div>
+              </div>
 
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="first_name" placeholder="employee name"  title="Employee Name">         
+              <!-- Last Name Field -->
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input 
+                          class="w-12" 
+                          type="text" 
+                          pInputText 
+                          formControlName="last_name" 
+                          placeholder="Apellido del empleado" 
+                          title="Apellido">          
+                  </div>
               </div>
           </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="last_name" placeholder="employee last name" title="Employee Last Name" >          
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="position" placeholder="employee position"  title="Employee Position">         
+          <!-- Position Field -->
+          <div class="grid">
+              <div class="col-12 sm:col-6">
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-briefcase"></i></span>
+                      <input 
+                          class="w-12" 
+                          type="text" 
+                          pInputText 
+                          formControlName="position" 
+                          placeholder="Cargo del empleado" 
+                          title="Cargo">         
+                  </div>
               </div>
           </div>
-        </div>
 
-    
+          <!-- Action Buttons -->
+          <div class="flex justify-content-center flex-wrap">
+              <!-- Update Button -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Actualizar"
+                  icon="pi pi-save"
+                  severity="info"
+                  class="mr-4"
+                  type="submit">
+              </button>
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Update"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
+              <!-- Cancel Button -->
+              <button 
+                  pButton 
+                  pRipple
+                  label="Cancelar"
+                  icon="pi pi-times-circle"
+                  severity="warning"
+                  class="mr-4"
+                  type="button"
+                  (click)="cancel()">
+              </button>
+          </div>
 
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
-        </div>
+      </form>
+  </div>
 
-    </form> 
+  <!-- Template for the card footer -->
+  <ng-template pTemplate="footer">
+      <!-- Optional footer content -->
+  </ng-template>
+</p-card>
 
-    </div>
-    <ng-template pTemplate="footer">
-
-    </ng-template>
-  </p-card>
 

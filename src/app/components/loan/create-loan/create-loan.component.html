@@ -1,107 +1,119 @@
-<p-card header="Create Clients"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
-
-    </ng-template>
-    <div>
-      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
-
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="amount" placeholder="amount"  title="Amount">         
-              </div>
-          </div>
-
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="interest_rate" placeholder="interest rate" title="Interest Rate" >          
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="date" pInputText formControlName="disbursement_date" placeholder="disbursement date"  title="Dsbuesement Date">         
-              </div>
-          </div>
-
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
-                  <input class="w-12" type="date" pInputText formControlName="due_date" placeholder="due date" title="Due Date" >          
-            </div>
-          </div>
-
-
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-              <input class="w-12" type="number" pInputText formControlName="employee" placeholder="employee" title="Employee" >          
-          </div>
-          </div>
-
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-              <input class="w-12" type="text" pInputText formControlName="status" placeholder="status" title="Status" >          
-          </div>
-          </div>
-        </div>
-
-
-        <div class="grid">
-            <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1 ">
-                <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-                <input class="w-12" type="number" pInputText formControlName="loan_type" placeholder="loan type" title="Loan Type" >          
-            </div>
-            </div>
+<!-- Card component that displays the "Create Loan" form, styled to take up full width -->
+<p-card header="Create Loan" [style]="{ width: '100%' }">
+  <!-- Placeholder for the header template of the card -->
+  <ng-template pTemplate="header">
+  </ng-template>
   
-            <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1 ">
-                <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-                <input class="w-12" type="number" pInputText formControlName="client" placeholder="client" title="Client" >          
-            </div>
-            </div>
-          </div>
+  <div>
+    <!-- Form setup with Angular Reactive Forms, using 'formGroup' to bind to the 'form' object.
+         'novalidate' disables default HTML validation in favor of Angular validation.
+         'ngSubmit' triggers the 'onSubmit' method when the form is submitted. -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Save"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
-
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
+      <!-- Section containing form fields in a grid layout -->
+      <div class="grid">
+        
+        <!-- Field for loan amount input, styled with icons and full-width input -->
+        <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input class="w-12" type="number" pInputText formControlName="amount" placeholder="Amount" title="Amount">         
+            </div>
         </div>
 
-    </form> 
+        <!-- Field for interest rate input, using a wallet icon for visual cue -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                <input class="w-12" type="number" pInputText formControlName="interest_rate" placeholder="Interest Rate" title="Interest Rate">          
+          </div>
+        </div>
 
-    </div>
-    <ng-template pTemplate="footer">
+      </div>
 
-    </ng-template>
-  </p-card>
+      <div class="grid">
+        <!-- Field for disbursement date input, using a phone icon -->
+        <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                <input class="w-12" type="date" pInputText formControlName="disbursement_date" placeholder="Disbursement Date" title="Disbursement Date">         
+            </div>
+        </div>
+
+        <!-- Field for due date input, with a bookmark icon for indication -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
+                <input class="w-12" type="date" pInputText formControlName="due_date" placeholder="Due Date" title="Due Date">          
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- Field for employee input, using a comments icon -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
+            <input class="w-12" type="number" pInputText formControlName="employee" placeholder="Employee" title="Employee">          
+        </div>
+        </div>
+
+        <!-- Field for status input, allowing text entry for loan status -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
+            <input class="w-12" type="text" pInputText formControlName="status" placeholder="Status" title="Status">          
+        </div>
+        </div>
+      </div>
+
+      <div class="grid">
+          <!-- Field for loan type input, allowing number entry for loan type -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
+              <input class="w-12" type="number" pInputText formControlName="loan_type" placeholder="Loan Type" title="Loan Type">          
+          </div>
+          </div>
+
+          <!-- Field for client input, accepting client ID number -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
+              <input class="w-12" type="number" pInputText formControlName="client" placeholder="Client" title="Client">          
+          </div>
+          </div>
+      </div>
+
+      <!-- Section for submit and cancel buttons, centered and styled with icons and colors -->
+      <div class="flex justify-content-center flex-wrap">
+        <button 
+                    pButton 
+                    pRipple
+                    label="Save"
+                    icon="pi pi-save"
+                    severity="info"
+                    class="mr-4"
+                    type="submit"
+        ></button>
+
+        <button 
+                    pButton 
+                    pRipple
+                    label="Cancel"
+                    icon="pi pi-times-circle"
+                    severity="warning"
+                    class="mr-4"
+                    type="button"
+                    (click)="cancel()"
+        ></button>
+      </div>
+
+  </form> 
+
+  </div>
+  
+  <!-- Placeholder for the footer template of the card -->
+  <ng-template pTemplate="footer">
+  </ng-template>
+</p-card>

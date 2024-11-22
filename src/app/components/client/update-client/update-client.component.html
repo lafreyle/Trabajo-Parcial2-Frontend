@@ -1,84 +1,98 @@
-<p-card header="update Clients"  [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
+<!-- A card component from PrimeNG with a header and full width style -->
+<p-card header="Actualizar Clientes" [style]="{ width: '100%' }">
+    
+  <!-- Template for the header, currently empty -->
+  <ng-template pTemplate="header">
+  </ng-template>
 
-    </ng-template>
-    <div>
+  <div>
+      <!-- Form bound to an Angular FormGroup, with no HTML5 validation and a submit event handler -->
       <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+          
+          <!-- First row: Input fields for client name and last name -->
+          <div class="grid">
+              <div class="col-12 sm:col-6">
+                  <!-- Input group for the client's first name -->
+                  <div class="p-inputgroup mb-1">
+                      <!-- Icon before the input field -->
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <!-- Input field bound to 'first_name' in the FormGroup -->
+                      <input class="w-12" type="text" pInputText formControlName="first_name" placeholder="client name" title="Client Name">
+                  </div>
+              </div>
 
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="first_name" placeholder="client name"  title="Client Name">         
+              <div class="col-12 sm:col-6">
+                  <!-- Input group for the client's last name -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <!-- Input field bound to 'last_name' in the FormGroup -->
+                      <input class="w-12" type="text" pInputText formControlName="last_name" placeholder="client last name" title="Client Last Name">
+                  </div>
               </div>
           </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="last_name" placeholder="client last name" title="Client Last Name" >          
-            </div>
-          </div>
+          <!-- Second row: Input fields for client address and phone -->
+          <div class="grid">
+              <div class="col-12 sm:col-6">
+                  <!-- Input group for the client's address -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi-map-marker"></i></span>
+                      <!-- Input field bound to 'address' in the FormGroup -->
+                      <input class="w-12" type="text" pInputText formControlName="address" placeholder="client address" title="Client Address">
+                  </div>
+              </div>
 
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-              <div class="p-inputgroup mb-1">
-                  <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-                  <input class="w-12" type="text" pInputText formControlName="address" placeholder="client address"  title="Client Address">         
+              <div class="col-12 sm:col-6">
+                  <!-- Input group for the client's phone number -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                      <!-- Input field bound to 'phone' in the FormGroup -->
+                      <input class="w-12" type="number" pInputText formControlName="phone" placeholder="client phone" title="Client Phone">
+                  </div>
               </div>
           </div>
 
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-                  <span class="p-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
-                  <input class="w-12" type="number" pInputText formControlName="phone" placeholder="client phone" title="Client Phone" >          
-            </div>
+          <!-- Third row: Input field for client email -->
+          <div class="grid">
+              <div class="col-12 sm:col-6">
+                  <!-- Input group for the client's email -->
+                  <div class="p-inputgroup mb-1">
+                      <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                      <!-- Input field bound to 'email' in the FormGroup -->
+                      <input class="w-12" type="email" pInputText formControlName="email" placeholder="client email" title="Client Email">
+                  </div>
+              </div>
           </div>
 
+          <!-- Buttons: Submit and Cancel -->
+          <div class="flex justify-content-center flex-wrap">
+              <!-- Submit button with a save icon -->
+              <button 
+                  pButton 
+                  pRipple 
+                  label="Actualizar" 
+                  icon="pi pi-save" 
+                  severity="info" 
+                  class="mr-4" 
+                  type="submit">
+              </button>
 
-
-        </div>
-
-        <div class="grid">
-          <div class="col-12 sm:col-6">
-            <div class="p-inputgroup mb-1 ">
-              <span class="p-inputgroup-addon"><i class="pi pi-comments"></i></span>
-              <input class="w-12" type="email" pInputText formControlName="email" placeholder="client email" title="Client Email" >          
+              <!-- Cancel button with a cancel icon -->
+              <button 
+                  pButton 
+                  pRipple 
+                  label="Cancelar" 
+                  icon="pi pi-times-circle" 
+                  severity="warning" 
+                  class="mr-4" 
+                  type="button" 
+                  (click)="cancel()">
+              </button>
           </div>
-          </div>
-        </div>
+      </form>
+  </div>
 
-        <div class="flex justify-content-center flex-wrap">
-          <button 
-                      pButton 
-                      pRipple
-                      label="Update"
-                      icon="pi pi-save"
-                      severity="info"
-                      class="mr-4"
-                      type="submit"
-          ></button>
-
-          <button 
-                      pButton 
-                      pRipple
-                      label="Cancel"
-                      icon="pi pi-times-circle"
-                      severity="warning"
-                      class="mr-4"
-                      type="button"
-                      (click)="cancel()"
-          ></button>
-        </div>
-
-    </form> 
-
-    </div>
-    <ng-template pTemplate="footer">
-
-    </ng-template>
-  </p-card>
-
+  <!-- Template for the footer, currently empty -->
+  <ng-template pTemplate="footer">
+  </ng-template>
+</p-card>

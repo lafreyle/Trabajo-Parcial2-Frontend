@@ -1,17 +1,26 @@
 <main>
-  <header>
-      <app-header></app-header>
-  </header>
-
-  <aside>
-      <app-aside></app-aside>
-  </aside>
-
-  <section>
-      <router-outlet></router-outlet>
-  </section>
-
-  <footer>
-      <app-footer></app-footer>
-  </footer>
-</main>
+    <!-- Header section of the page -->
+    <header>
+        <!-- Custom component for the header -->
+        <app-header></app-header>
+    </header>
+  
+    <!-- Aside section of the page -->
+    <aside>
+        <!-- Custom component for the sidebar -->
+        <app-aside></app-aside>
+    </aside>
+  
+    <!-- Main content section of the page -->
+    <section>
+        <!-- This will load content dynamically using Angular's router -->
+        <router-outlet></router-outlet>
+    </section>
+  
+    <!-- Footer section of the page -->
+    <footer>
+        <!-- Custom component for the footer -->
+        <app-footer></app-footer>
+    </footer>
+  </main>
+  

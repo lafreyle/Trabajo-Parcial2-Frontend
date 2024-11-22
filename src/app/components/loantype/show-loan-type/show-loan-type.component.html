@@ -1,49 +1,67 @@
 <p-card class="w-12 h-full">
+    <!-- The card component is used to wrap the content in a styled container. The 'w-12' and 'h-full' classes set the width and height. -->
+
     <ng-template pTemplate="header">
+        <!-- Header section of the card -->
 
         <div class="flex justify-content-between flex-wrap">
+            <!-- Flexbox layout to align the header content -->
+
             <h3 class="ml-4">
-                Loan Type Registration
+                Registrar Tipo de Préstamo
             </h3>
+            <!-- Title of the card (Register Loan Type) -->
+
             <div class="mt-2 mr-2">
+                <!-- Button to navigate to a new loan type creation page -->
                 <a 
                   pButton 
                   pRipple
-                  label="Create Loan type" 
+                  label="Crear Tipo de Préstamo" 
                   icon="pi pi-user-plus"
                   class="bg-cyan-600"
                   [routerLink]="['/loantype/new']">
+                  <!-- This button links to '/loantype/new' route when clicked -->
                 </a>
-
-
             </div>
-
         </div>
     </ng-template>
+
     <p>
         <p-table [value]="loantype">
+            <!-- PrimeNG table component to display the loan types -->
             <ng-template pTemplate="header">
+                <!-- Table header -->
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                
+                    <th>Nombre</th>
+                    <!-- Column headers: Id and Name -->
+
                     <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <!-- Actions column with flexbox to center the buttons -->
                 </tr>
             </ng-template>
+
             <ng-template pTemplate="body" let-loantype>
+                <!-- Table body with rows generated for each loan type -->
                 <tr>
                     <td>{{ loantype.id }}</td>
+                    <!-- Displays the loan type ID -->
+
                     <td>{{ loantype.name }}</td>
-                   
+                    <!-- Displays the loan type name -->
+
                     <td>
+                        <!-- Actions column with buttons for each row -->
+
                         <button 
-                        pButton 
+                            pButton 
                             pRipple
                             icon="pi pi-print"
-                            class="bg-cyan-600  mr-1"
-                        >
-
+                            class="bg-cyan-600  mr-1">
+                            <!-- Print button (currently empty, intended for future use) -->
                         </button>
+
                         <a 
                             pButton 
                             pRipple
@@ -51,6 +69,7 @@
                             severity="warning"
                             class="mr-1"
                             [routerLink]="['/loantype/edit', loantype.id]">
+                            <!-- Edit button that links to the 'edit' page of the loan type -->
                         </a>
 
                         <button 
@@ -59,15 +78,13 @@
                             severity="danger"
                             icon="pi pi-eraser"
                             class="mr-1"
-                            (click)="delete(loantype.id)"
-                        >
-
+                            (click)="delete(loantype.id)">
+                            <!-- Delete button to remove the loan type, triggers delete() method on click -->
                         </button>
                     </td>
-
                 </tr>
             </ng-template>
         </p-table>
     </p>
-
 </p-card>
+

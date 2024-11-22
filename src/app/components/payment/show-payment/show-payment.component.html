@@ -1,78 +1,84 @@
 <p-card class="w-12 h-full">
+    <!-- p-card component used to create a styled container for the content -->
     <ng-template pTemplate="header">
-
+        <!-- Header section of the card -->
         <div class="flex justify-content-between flex-wrap">
             <h3 class="ml-4">
-                Payment Registration
+                Registrar Pagos
+                <!-- Title for the "Register Payments" section -->
             </h3>
             <div class="mt-2 mr-2">
+                <!-- Button to navigate to the page for creating a new payment -->
                 <a 
                   pButton 
                   pRipple
-                  label="Create Payments" 
-                  icon="pi pi-user-plus"
-                  class="bg-cyan-600"
-                  [routerLink]="['/payments/new']">
+                  label="Crear Pagos"  
+                  icon="pi pi-user-plus"  
+                  class="bg-cyan-600"  
+                  [routerLink]="['/payments/new']"  
+                >
                 </a>
-
-
             </div>
-
         </div>
     </ng-template>
+
     <p>
+        <!-- p-table component used to display the payments list in a table format -->
         <p-table [value]="payments">
+            <!-- Table header with column titles -->
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Payment Date</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Loan</th>
-                    <th>Client</th>
-                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <th>Fecha de Pago</th> <!-- Payment Date -->
+                    <th>Monto</th> <!-- Amount -->
+                    <th>Estado</th> <!-- Status -->
+                    <th>Préstamo</th> <!-- Loan -->
+                    <th>Cliente</th> <!-- Client -->
+                    <th class="flex justify-content-center flex-wrap">Acciones</th> <!-- Column for actions (edit, delete, print) -->
                 </tr>
             </ng-template>
+
+            <!-- Table body where each payment item is displayed -->
             <ng-template pTemplate="body" let-payments>
                 <tr>
-                    <td>{{ payments.payment_date }}</td>
-                    <td>{{ payments.amount }}</td>
-                    <td>{{ payments.status }}</td>
-                    <td>{{ payments.loan }}</td>
-                    <td>{{ payments.client }}</td>
+                    <td>{{ payments.payment_date }}</td> <!-- Display the payment date -->
+                    <td>{{ payments.amount }}</td> <!-- Display the payment amount -->
+                    <td>{{ payments.status }}</td> <!-- Display the payment status -->
+                    <td>{{ payments.loan }}</td> <!-- Display the associated loan -->
+                    <td>{{ payments.client }}</td> <!-- Display the associated client -->
                     <td>
+                        <!-- Button to print payment details (currently not functional) -->
                         <button 
-                        pButton 
+                            pButton 
                             pRipple
                             icon="pi pi-print"
-                            class="bg-cyan-600  mr-1"
+                            class="bg-cyan-600 mr-1"  
                         >
-
                         </button>
+
+                        <!-- Link to navigate to the payment edit page, passing the payment ID -->
                         <a 
                             pButton 
                             pRipple
                             icon="pi pi-sync"
-                            severity="warning"
+                            severity="warning" 
                             class="mr-1"
-                            [routerLink]="['/payments/edit', payments.id]">
+                            [routerLink]="['/payments/edit', payments.id]"  
+                        >
                         </a>
 
+                        <!-- Button to delete the payment, calling the delete function on click -->
                         <button 
                             pButton 
                             pRipple
-                            severity="danger"
+                            severity="danger"  
                             icon="pi pi-eraser"
                             class="mr-1"
-                            (click)="delete(payments.id)"
+                            (click)="delete(payments.id)"  
                         >
-
                         </button>
                     </td>
-
                 </tr>
             </ng-template>
         </p-table>
     </p>
-
 </p-card>
-

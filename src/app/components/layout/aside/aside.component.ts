@@ -15,7 +15,7 @@ export class AsideComponent {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Client',
+        label: 'Clientes',
         icon: 'pi pi-fw pi-users',
         routerLink: '/clients',
         // items: [
@@ -28,8 +28,8 @@ export class AsideComponent {
         // ]
       },
       {
-        label: 'Employee',
-        icon: 'pi pi-fw pi-qrcode',
+        label: 'Empleados',
+        icon: 'pi pi-fw pi-user',
         routerLink: '/employees',
         // items: [
         //   {
@@ -41,8 +41,8 @@ export class AsideComponent {
         // ]
       },
       {
-        label: 'Request',
-        icon: 'pi pi-fw pi-shopping-bag',
+        label: 'Solicitudes',
+        icon: 'pi pi-fw pi pi-file',
         routerLink: '/requests',
         // items: [
         //   {
@@ -55,19 +55,19 @@ export class AsideComponent {
       },
 
       {
-        label: 'Loans',
-        icon: 'pi pi-fw pi-shopping-cart',
+        label: 'Préstamos',
+        icon: 'pi pi-fw pi-money-bill',
         routerLink: '/loan',
          items: [
           {
-            label: 'Loans',
-            icon: 'pi pi-fw pi-shopping-cart',
+            label: 'Préstamo',
+            icon: 'pi pi-fw pi-dollar',
             routerLink: '/loans',
           },
 
           {
-            label: 'LoanType',
-            icon: 'pi pi-fw pi-shopping-cart',
+            label: 'Tipo de Préstamo',
+            icon: 'pi pi-fw pi-wallet',
             routerLink: '/loantype'
             // items: [
             //   {
@@ -80,8 +80,8 @@ export class AsideComponent {
           },
 
           {
-            label: 'LoanIssued',
-            icon: 'pi pi-fw pi-shopping-cart',
+            label: 'Préstamo Realizado',
+            icon: 'pi pi-fw pi-chart-line',
             routerLink: '/loanis'
             // items: [
             //   {
@@ -97,8 +97,8 @@ export class AsideComponent {
       },
 
       {
-        label: 'Payment',
-        icon: 'pi pi-fw pi-shopping-cart',
+        label: 'Pagos',
+        icon: 'pi pi-fw pi pi-check',
         routerLink: '/payments',
         // items: [
         //   {
